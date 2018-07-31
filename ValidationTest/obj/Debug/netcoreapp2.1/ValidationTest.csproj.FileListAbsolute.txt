@@ -1,0 +1,14 @@
+C:\Users\Ali\source\repos\ValidationTest\ValidationTest\bin\Debug\netcoreapp2.1\ValidationTest.deps.json
+C:\Users\Ali\source\repos\ValidationTest\ValidationTest\bin\Debug\netcoreapp2.1\ValidationTest.runtimeconfig.json
+C:\Users\Ali\source\repos\ValidationTest\ValidationTest\bin\Debug\netcoreapp2.1\ValidationTest.runtimeconfig.dev.json
+C:\Users\Ali\source\repos\ValidationTest\ValidationTest\bin\Debug\netcoreapp2.1\ValidationTest.dll
+C:\Users\Ali\source\repos\ValidationTest\ValidationTest\obj\Debug\netcoreapp2.1\ValidationTest.csproj.CoreCompileInputs.cache
+C:\Users\Ali\source\repos\ValidationTest\ValidationTest\obj\Debug\netcoreapp2.1\ValidationTest.RazorAssemblyInfo.cache
+C:\Users\Ali\source\repos\ValidationTest\ValidationTest\obj\Debug\netcoreapp2.1\ValidationTest.RazorAssemblyInfo.cs
+C:\Users\Ali\source\repos\ValidationTest\ValidationTest\obj\Debug\netcoreapp2.1\ValidationTest.AssemblyInfoInputs.cache
+C:\Users\Ali\source\repos\ValidationTest\ValidationTest\obj\Debug\netcoreapp2.1\ValidationTest.AssemblyInfo.cs
+C:\Users\Ali\source\repos\ValidationTest\ValidationTest\obj\Debug\netcoreapp2.1\ValidationTest.RazorTargetAssemblyInfo.cache
+C:\Users\Ali\source\repos\ValidationTest\ValidationTest\bin\Debug\netcoreapp2.1\ValidationTest.pdb
+C:\Users\Ali\source\repos\ValidationTest\ValidationTest\obj\Debug\netcoreapp2.1\ValidationTest.dll
+C:\Users\Ali\source\repos\ValidationTest\ValidationTest\obj\Debug\netcoreapp2.1\ValidationTest.pdb
+C:\Users\Ali\source\repos\ValidationTest\ValidationTest\obj\Debug\netcoreapp2.1\ValidationTest.csprojAssemblyReference.cache

@@ -1,0 +1,27 @@
+services:
+  kafka:
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_CREATE_TOPICS: testtopic:1:1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    image: wurstmeister/kafka:0.10.2.0
+    ports:
+    - published: 9092
+      target: 9092
+    volumes:
+    - \var\run\docker.sock:/var/run/docker.sock:rw
+  validationtest:
+    build:
+      context: C:\Users\Ali\source\repos\ValidationTest
+      dockerfile: ValidationTest/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: validationtest
+    ports:
+    - target: 80
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+    - published: 2181
+      target: 2181
+version: '3.4'

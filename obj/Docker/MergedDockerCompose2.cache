@@ -1,0 +1,16 @@
+services:
+  validationtest:
+    build:
+      context: C:\Users\Ali\source\repos\ValidationTest
+      dockerfile: ValidationTest/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: validationtest
+    ports:
+    - target: 80
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+    - published: 2181
+      target: 2181
+version: '3.4'
