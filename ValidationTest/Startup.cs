@@ -32,10 +32,6 @@ namespace ValidationTest
                 options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
             });
             services.AddScoped(typeof(ValidateModelAttribute));
-            //services.AddMvc(options =>
-            //{
-            //    options.Filters.Add(typeof(ValidateModelAttribute));
-            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,7 +42,10 @@ namespace ValidationTest
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
-        }
+            app.UseMvc(routes=>
+                routes.MapRoute(
+                name: "default",
+                template: "{controller=TestMessage}/{action=get}"));
+                    }
     }
 }

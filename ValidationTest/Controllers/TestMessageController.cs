@@ -39,17 +39,18 @@ namespace ValidationTest.Controllers
             {
                 return BadRequest();
             }
+            int i = 0;
+            var r = "";
             var config = new Dictionary<string, object>{
-                { "bootstrap.servers", "localhost:9092" }
+                { "bootstrap.servers", "my-kafka:9092" }
              };
             using (var producer = new Producer<Null, string>(config, null, new StringSerializer(Encoding.UTF8)))
             {
-            
-                producer.ProduceAsync("hello-topic", null, message.ToString());
-
-                producer.Flush(100);
+                var dr = producer.ProduceAsync("test", null, message.ToString()).Result;
+                r = $"Delivered '{dr.Value}' to: {dr.TopicPartitionOffset}";
+                //i = producer.Flush(100);
             }           
-            return Ok(true);
+            return Ok(i);
         }
         public bool IsValid(JObject message)
         {
