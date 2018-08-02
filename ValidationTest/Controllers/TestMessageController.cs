@@ -47,7 +47,7 @@ namespace ValidationTest.Controllers
             using (var producer = new Producer<Null, string>(config, null, new StringSerializer(Encoding.UTF8)))
             {
                 var dr = producer.ProduceAsync("test", null, message.ToString()).Result;
-                r = $"Delivered '{dr.Value}' to: {dr.TopicPartitionOffset}";
+                r = $"Delivered to: {dr.TopicPartitionOffset} Offset={dr.Offset} TimeStamp={dr.Timestamp} Error={dr.Error}";
                 //i = producer.Flush(100);
             }           
             return Ok(i);
