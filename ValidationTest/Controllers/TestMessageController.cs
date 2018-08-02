@@ -23,7 +23,7 @@ namespace ValidationTest.Controllers
         [HttpGet]
         public string Get()
         {
-            return $"Unity Test Case V 0.9 By Alireza Abdelahi. Powered by ASP.NET Core version 0.8.2.0 hosted by {Environment.MachineName}";
+            return $"Unity Test Case By Alireza Abdelahi. Powered by ASP.NET Core - version 0.8.2.0 Hosted by {Environment.MachineName}";
         }
 
         // POST: api/TestMessage
@@ -50,7 +50,7 @@ namespace ValidationTest.Controllers
                 r = $"Delivered '{dr.Value}' to: {dr.TopicPartitionOffset}";
                 //i = producer.Flush(100);
             }           
-            return Ok(i);
+            return Ok(r);
         }
         public bool IsValid(JObject message)
         {
