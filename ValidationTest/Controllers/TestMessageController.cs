@@ -23,7 +23,7 @@ namespace ValidationTest.Controllers
         [HttpGet]
         public string Get()
         {
-            return "Unity Test Case V 0.9 By Alireza Abdelahi. Powered by ASP.NET Core";
+            return $"Unity Test Case V 0.9 By Alireza Abdelahi. Powered by ASP.NET Core version 0.8.0.1 hosted by {Environment.MachineName}";
         }
 
         // POST: api/TestMessage
