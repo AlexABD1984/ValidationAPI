@@ -1,0 +1,37 @@
+---
+apiVersion: "extensions/v1beta1"
+kind: "Deployment"
+metadata:
+  name: "unityaspnetcoreapi"
+  namespace: "default"
+  labels:
+    app: "unityaspnetcoreapi"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: "unityaspnetcoreapi"
+  template:
+    metadata:
+      labels:
+        app: "unityaspnetcoreapi"
+    spec:
+      containers:
+      - name: "validationapi"
+        image: "manonthesky/validationapi"
+---
+apiVersion: "autoscaling/v1"
+kind: "HorizontalPodAutoscaler"
+metadata:
+  name: "unityaspnetcoreapi-hpa"
+  namespace: "default"
+  labels:
+    app: "unityaspnetcoreapi"
+spec:
+  scaleTargetRef:
+    kind: "Deployment"
+    name: "unityaspnetcoreapi"
+    apiVersion: "apps/v1beta1"
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
