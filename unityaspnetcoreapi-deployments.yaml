@@ -18,7 +18,8 @@ spec:
     spec:
       containers:
       - name: "validationapi"
-        image: "manonthesky/validationapi"
+        image: "manonthesky/validationapi:latest"
+        imagePullPolicy: "Always"
 ---
 apiVersion: "autoscaling/v1"
 kind: "HorizontalPodAutoscaler"
@@ -33,5 +34,5 @@ spec:
     name: "unityaspnetcoreapi"
     apiVersion: "apps/v1beta1"
   minReplicas: 1
-  maxReplicas: 5
+  maxReplicas: 3
   targetCPUUtilizationPercentage: 80

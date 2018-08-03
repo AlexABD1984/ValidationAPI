@@ -35,11 +35,12 @@ namespace ValidationTest.Controllers
             {
                 return BadRequest();
             }
-            if (!IsValid(message))
+            // validate Json object by schema
+            if (!IsValidJson(message))
             {
                 return BadRequest();
             }
-            int i = 0;
+            // Publish Message to Kafka Message Broker
             var r = "";
             var config = new Dictionary<string, object>{
                 { "bootstrap.servers", "my-kafka:9092" }
@@ -48,13 +49,25 @@ namespace ValidationTest.Controllers
             {
                 var dr = producer.ProduceAsync("test", null, message.ToString()).Result;
                 r = $"Delivered to: {dr.TopicPartitionOffset} Offset={dr.Offset} TimeStamp={dr.Timestamp} Error={dr.Error}";
-                //i = producer.Flush(100);
-            }           
+            }          
+            
             return Ok(r);
         }
-        public bool IsValid(JObject message)
+        /// <summary>
+        /// This Methode validate json by Json Schema validator       
+        /// </summary>
+        /// <param name="message">Json object which need to validate</param>
+        /// <returns>True | False : the result of validation</returns>
+        public bool IsValidJson(JObject message)
         {
+            //In real production, it is better to expose schema via url and cache it for better control over validation and update and performance
             #region Schema definition
+            //Validation rules:  
+            //● “ts” must be present and a valid Unix timestamp  
+            //● “sender” must be present and a string  
+            //● “message” must be present, a JSON object, and have at least one  field set  
+            //● If present, “sent-from-ip” must be a valid IPv4 address  
+            //● All fields not listed in the example above are invalid, and  should result in the message being rejected.  
             JSchema schema = JSchema.Parse(@"{
                 '$id': 'http://example.com/example.json',
                     'type': 'object',
@@ -118,9 +131,10 @@ namespace ValidationTest.Controllers
                 }
             }");
             #endregion
-            //JObject message = JObject.Parse(value);
-            IList<string> validationErrors;
-            bool isValid = message.IsValid(schema, out validationErrors);
+            
+            IList<string> validationErrors; // we can provide error list
+            bool isValid = message.IsValid(schema, out validationErrors);   //Validate Json object by Schema Validation
+
             return isValid;
         }
     }
