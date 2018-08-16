@@ -23,9 +23,13 @@ namespace ValidationTest.Controllers
         [HttpGet]
         public string Get()
         {
-            return $"Unity Test Case By Alireza Abdelahi. Powered by ASP.NET Core - version 0.8.2.0 Hosted by {Environment.MachineName}";
+            return $"Unity Test Case By Alireza Abdelahi. Powered by ASP.NET Core - version 1.0.0 Hosted by {Environment.MachineName}";
         }
-
+        [Route("~/loaderio-1a7db69d422d28479284f1431b35de70/")]
+        public string LoaderioVerify()
+        {
+            return "loaderio-1a7db69d422d28479284f1431b35de70";
+        }
         // POST: api/TestMessage
         [HttpPost]
         //[ServiceFilter(typeof(ValidateModelAttribute))]
